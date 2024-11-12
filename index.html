@@ -3,292 +3,517 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Complete Data Collection, task automation, & Full-Stack Web Development</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Tamyeez Solutions - Data Collection & Automation Experts</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2a9d8f;
+        --primary-dark: #1a8b7f;
+        --secondary: #f4a261;
+        --secondary-dark: #e39251;
+        --dark: #1c1f2a;
+        --light: #f4f4f4;
+        --gray: #666;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        background: var(--light);
+        overflow-x: hidden;
+      }
+
+      /* Animated Background */
+      .bg-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .bg-animation li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 75px;
+        height: 20px;
+        color: #858686;
+        font-weight: bold;
+        font-size: 22px;
+        background: rgba(255, 255, 255, 0.1);
+        animation: animate 25s linear infinite;
+        bottom: -150px;
+      }
+
+      .bg-animation li:nth-child(1) {
+        left: 25%;
+        width: 115px;
+        height: 100px;
+        padding: 20px;
+        animation-delay: 0s;
+      }
+
+      .bg-animation li:nth-child(2) {
+        left: 10%;
+        width: 130px;
+        height: 125px;
+        padding: 20px;
+        animation-delay: 2s;
+        animation-duration: 12s;
+      }
+
+      .bg-animation li:nth-child(3) {
+        left: 70%;
+        width: 125px;
+        height: 125px;
+        padding: 20px;
+        animation-delay: 4s;
+      }
+
+      .bg-animation li:nth-child(4) {
+        left: 40%;
+        width: 125px;
+        height: 125px;
+        padding: 20px;
+        animation-delay: 0s;
+        animation-duration: 18s;
+      }
+
+      .bg-animation li:nth-child(5) {
+        left: 65%;
+        width: 125px;
+        height: 125px;
+        padding: 20px;
+        animation-delay: 0s;
+      }
+
+      @keyframes animate {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+          border-radius: 0;
+        }
+        100% {
+          transform: translateY(-1000px) rotate(720deg);
+          opacity: 0;
+          border-radius: 50%;
+        }
+      }
+
+      /* Header Styles */
+      header {
+        background: var(--dark);
+        color: white;
+        position: relative;
+        padding: 4rem 0;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+        border: 4px solid var(--primary);
+        padding: 0.3rem;
+        background: white;
+        transition: transform 0.7s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.1);
+        padding: 0.3rem;
+        transition: 0.7s ease;
+        transition: all 0.3s ease;
+
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .company-slogan {
+        font-size: 2rem;
+        color: var(--secondary);
+        margin-bottom: 2rem;
+      }
+
+      .hero-text {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        line-height: 1.8;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--secondary);
+        color: var(--dark);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        background: transparent;
+        color: var(--secondary);
+        border-color: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Services Section */
+      .services {
+        padding: 5rem 2rem;
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: var(--dark);
+        margin-bottom: 3rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+
+      .service-card:hover::before {
+        opacity: 0.1;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .service-title {
+        color: var(--dark);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .service-description {
+        color: var(--gray);
+        margin-bottom: 1rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 2rem;
+        background: white;
+      }
+
+      .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 1.5rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .form-label {
+        font-weight: bold;
+        color: var(--dark);
+      }
+
+      .form-input {
+        padding: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+      }
+
+      textarea.form-input {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-button {
+        background: var(--primary);
+        color: white;
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .submit-button:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .footer-logo {
+        width: 80px;
+        margin-bottom: 1rem;
+      }
+
+      .footer-text {
+        font-size: 1rem;
+        color: #aaa;
+      }
+
+      .footer-social {
+        margin-top: 1rem;
+      }
+
+      .footer-social a {
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 3rem 0;
+        }
+
+        .cta-button {
+          font-size: 1rem;
+          padding: 0.8rem 1.8rem;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Header Section -->
-    <header>
-      <div class="container">
-        <img
-          src="tamyeez_solutions_logo.jpg"
-          alt="Tamyeez Solutions Logo"
-          class="logo"
-        />
-        <h1>Tamyeez Solutions</h1>
-        <h2 class="company-slogan">Distinguish Yourself</h2>
-        <h2>Professional Data Collection, Task Automation, & Full-Stack Web Development</h2>
-        <h3>
-          Efficient data extraction and task automation to save you time and
-          maximize productivity. Handle data the way you want!
-        </h3>
-        <p>
-          <span class="time">Time</span> is your most valuable resource—once
-          it’s gone, it’s gone. The most successful people know how to maximize
-          every moment. <span class="emphasis">Buy Time Now!</span> Let us take
-          on the repetitive tasks holding you back, boost your productivity, and
-          give you more time to focus on what truly matters.
-        </p>
+    <div class="bg-animation">
+      <ul>
+        <li>Custom Chatbots</li>
+        <li>Intelligent Data Handling</li>
+        <li>Web Scraping</li>
+        <li>Beautiful Soup</li>
+        <li>Selenium</li>
+        <li>Scrapy</li>
+      </ul>
+    </div>
 
-        <a href="#contact" class="cta-button">Get Started</a>
+    <header>
+      <div class="header-content">
+        <img src="tamyeez_solutions_logo.jpg" alt="Logo" class="logo" />
+        <h1>Tamyeez Solutions</h1>
+        <p class="company-slogan">Data Collection & Automation Experts</p>
+        <p class="hero-text">
+          We provide automated solutions to streamline your data processes,
+          making your business more efficient and scalable.
+        </p>
+        <a href="#contact" class="cta-button">Contact Us</a>
       </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services">
-      <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-<!--           <div class="service">
-            <h3>Full-Stack Web Development</h3>
-            <p>
-              Build powerful, scalable, and user-friendly applications with our
-              full-stack and mobile development services. From front-end design
-              to back-end infrastructure, we create customized solutions that
-              enhance user experience, meet your business requirements, and
-              provide robust digital platforms for sustained growth and
-              engagement.
-            </p>
-          </div>
-          <div class="service">
-            <h3>Ethical Web Scraping</h3>
-            <p>
-              Leveraging web scraping technology to extract valuable data
-              insights from complex sites with Python, Node, Beautiful Soup, Selenium, Scrapy, and Puppeteer. Our ethical web scraping services empower your
-              business with actionable data, supporting market research,
-              competitor analysis, price monitoring, lead generation, and
-              customer review aggregation. Turn scattered data into strategic
-              assets to drive informed business decisions.
-            </p>
-          </div>
-          <div class="service">
-            <h3>Task Automation</h3>
-            <p>
-              Streamline repetitive processes and improve productivity with our
-              task automation solutions. Using Python and specialized tools, we
-              automate tasks like data entry, report generation, file
-              organization, and more. This service reduces errors, saves time,
-              and allows you to focus on high-value business activities while
-              boosting efficiency across your operations.
-            </p>
-          </div>
-          <div class="service">
-            <h3>Database Management</h3>
-            <p>
-              Ensure reliable and efficient data storage and handling with our
-              database management expertise. We provide a comprehensive database
-              modeling, optimization, and maintenance solutions to support your
-              data-driven needs, ensuring scalability, security, and seamless
-              performance for all your critical data operations.
-            </p>
-          </div>
-          <div class="service">
-            <h3>OpenAI-Powered Solutions</h3>
-            <p>
-              Unlock the potential of natural language processing with custom
-              OpenAI-based solutions tailored to your needs. Whether it's
-              content generation, data analysis, chatbot development, or
-              advanced machine learning applications, we utilize the OpenAI API
-              to provide intelligent, data-driven solutions that enhance your
-              business's ability to interact and innovate.
-            </p>
-          </div>
-          <div class="service">
-            <h3>Automated Document Generation</h3>
-            <p>
-              Save time and ensure consistency with automated DOC file
-              generation. Our service creates professionally formatted documents
-              directly from your data sources, maintaining accuracy and visual
-              appeal. Ideal for report generation, client documentation, and
-              record-keeping, this service helps streamline document workflows
-              across your organization.
-            </p>
-          </div>
-        </div>
- -->
-          <div class="service">
-    <h3>OpenAI-Powered Solutions</h3>
-    <p>
-        Unlock the potential of natural language processing with custom OpenAI-based solutions tailored to your needs. 
-        Whether it's content generation, data analysis, chatbot development, or advanced machine learning applications, we leverage the OpenAI API to provide intelligent, data-driven solutions.
-        <br>
-        <strong>Key Benefits:</strong>
-        <ul>
-            <li>Automate interactions with AI-driven chatbots</li>
-            <li>Generate data insights for better decision-making</li>
-            <li>Boost engagement with AI-enhanced content</li>
-        </ul>
-    </p>
-</div>
-
-<div class="service">
-    <h3>Full-Stack Web Development</h3>
-    <p>
-        Build powerful, scalable, and user-friendly applications with our full-stack and mobile development services. From front-end design to back-end infrastructure, we create customized solutions that enhance user experience and drive growth.
-        <br>
-        <strong>Capabilities:</strong>
-        <ul>
-            <li>Responsive front-end design</li>
-            <li>Robust back-end infrastructure</li>
-            <li>Mobile app integration</li>
-        </ul>
-    </p>
-</div>
-
-<div class="service">
-    <h3>Ethical Web Scraping</h3>
-    <p>
-        Leverage web scraping technology with Python, Node, Beautiful Soup, Selenium, Scrapy, and Puppeteer to extract valuable data insights. Our ethical web scraping services support market research, competitor analysis, and lead generation.
-        <br>
-        <strong>Key Uses:</strong>
-        <ul>
-            <li>Market research and competitor analysis</li>
-            <li>Price monitoring and lead generation</li>
-            <li>Customer review aggregation</li>
-        </ul>
-    </p>
-</div>
-
-<div class="service">
-    <h3>Task Automation</h3>
-    <p>
-        Streamline repetitive processes and improve productivity with our task automation solutions. Using Python and specialized tools, we automate tasks like data entry, report generation, and file organization.
-        <br>
-        <strong>Key Benefits:</strong>
-        <ul>
-            <li>Reduces manual errors</li>
-            <li>Saves time on repetitive tasks</li>
-            <li>Allows focus on high-value business activities</li>
-            <li>Boosts efficiency across operations</li>
-        </ul>
-    </p>
-</div>
-
-
-<div class="service">
-    <h3>Database Management</h3>
-    <p>
-        Ensure reliable and efficient data storage and handling with our database management expertise. We provide comprehensive database modeling, optimization, and maintenance solutions to support your data-driven needs.
-        <br>
-        <strong>Benefits:</strong>
-        <ul>
-            <li>Secure, scalable data storage</li>
-            <li>Optimized data access and retrieval</li>
-            <li>Seamless performance for all critical operations</li>
-        </ul>
-    </p>
-</div>
-
-<div class="service">
-    <h3>Automated Document Generation</h3>
-    <p>
-        Save time and ensure consistency with automated document generation services. We create professionally formatted documents directly from your data sources, ideal for reports, client documentation, and record-keeping.
-        <br>
-        <strong>Advantages:</strong>
-        <ul>
-            <li>Consistency in document formatting and data accuracy</li>
-            <li>Streamlined workflows for efficient document management</li>
-            <li>Time savings across documentation processes</li>
-        </ul>
-    </p>
-</div>
-
-        <div class="services-cta">
-          <h3>
-            Contact us today to discuss how we can help streamline your
-            projects!
-          </h3>
-          <a href="#contact" class="cta-button">Get Started</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-      <div class="container">
-        <h2>About Us</h2>
-        <div class="about-description">
-    <p>Hello World!</p>
-    <br />
-
-    <p>
-        At Tamyeez Solutions, we’re dedicated to giving you back the most valuable asset you have: <strong>Time</strong>. With our expertise in automation and data-driven solutions, we eliminate repetitive tasks so you can focus on what truly drives your business forward. Time isn’t just money—it’s potential, growth, and freedom. Let us help you make the most of it.
-    </p>
-    <br />
-    <p>
-        Our passion lies in transforming raw data into meaningful, accessible resources. From designing efficient workflows to building powerful web scrapers, we specialize in data extraction and automation. For example, we’ve created tools that gather educational content and language resources, helping users access valuable information to support their learning and research goals.
-    </p>
-    <br />
-    <p>
-        We thrive on tackling complex problems with innovative solutions, especially when it comes to education and language learning. By leveraging automation, we aim to build intelligent applications that facilitate knowledge acquisition and engagement, empowering learners and researchers alike.
-    </p>
-    <br />
-    <p><strong>Reclaim Your Time Today!</strong></p>
-</div>
-
-        <br />
-        <div class="container-list">
-          <h3>Technologies:</h3>
-          <ul>
-            <li>Python</li>
-            <li>Flask</li>
-            <li>Django</li>
-            <li>API Development</li>
-            <li>OpenAI API</li>
-            <li>MySQL</li>
-            <li>MongoDB</li>
-            <li>BeautifulSoup</li>
-            <li>Selinium</li>
-            <li>Scrapy</li>
-            <li>React</li>
-            <li>React Native</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>
-          Let’s discuss how we can help you with your data extraction and
-          automation needs. Drop a message below or feel free to call.
-        </p>
-        <div class="contact-info">
-          <p>
-            Email:
-            <a href="mailto:tamyeezsolutions@gmail.com"
-              >tamyeezsolutions@gmail.com</a
-            >
+    <!-- Updated service section with your current focus -->
+    <section class="services" id="services">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-brain service-icon"></i>
+          <h3 class="service-title">OpenAI-Powered Solutions</h3>
+          <p class="service-description">
+            Unlock the potential of AI with custom OpenAI-based solutions
+            tailored to your needs.
           </p>
-          <p>Phone: <a href="tel:+12674901101">+1 267-490-1101</a></p>
+          <a href="#contact" class="cta-button">Learn More</a>
         </div>
+        <div class="service-card">
+          <i class="fas fa-code service-icon"></i>
+          <h3 class="service-title">Full-Stack Development</h3>
+          <p class="service-description">
+            Build powerful, scalable applications with our comprehensive
+            development services.
+          </p>
+          <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-spider service-icon"></i>
+          <h3 class="service-title">Ethical Web Scraping</h3>
+          <p class="service-description">
+            Extract valuable data insights using cutting-edge web scraping
+            technologies.
+          </p>
+          <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-bolt service-icon"></i>
+          <h3 class="service-title">Task Automation</h3>
+          <p class="service-description">
+            Streamline processes and boost productivity with custom automation
+            solutions.
+          </p>
+          <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-database service-icon"></i>
+          <h3 class="service-title">Data Collection & Management</h3>
+          <p class="service-description">
+            Gather, organize, and distribute data efficiently using tailored
+            solutions.
+          </p>
+          <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-file-alt service-icon"></i>
+          <h3 class="service-title">Document Generation</h3>
+          <p class="service-description">
+            Automate document creation and maintain consistency across your
+            organization.
+          </p>
+          <a href="#contact" class="cta-button">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <h2 class="section-title">Contact Us</h2>
         <form
-          action="mailto:tamyeezsolutions@gmail.com"
-          method="post"
-          enctype="text/plain"
+          action="https://formspree.io/f/your-form-id"
+          method="POST"
+          class="contact-form"
         >
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            required
-          ></textarea>
-          <button type="submit">Send Message</button>
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
         </form>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-      <img
-        src="tamyeez_solutions_logo.jpg"
-        alt="Tamyeez Solutions Logo"
-        class="footer-logo"
-      />
-      <p>&copy; 2024 Tamyeez Solutions. All rights reserved.</p>
+      <img src="tamyeez_solutions_logo.jpg" alt="Footer Logo" class="footer-logo" />
+      <p class="footer-text">&copy; 2024 Tamyeez Solutions</p>
+      <div class="footer-social">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
     </footer>
   </body>
 </html>
