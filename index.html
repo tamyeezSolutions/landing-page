@@ -1,521 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tamyeez Solutions - Data Collection, Full Stack Web Development & Automation Solutions</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markaz Tamyeez | Islamic & Arabic Learning Institute</title>
     <style>
-      :root {
-        --primary: #2a9d8f;
-        --primary-dark: #1a8b7f;
-        --secondary: #f4a261;
-        --secondary-dark: #e39251;
-        --dark: #1c1f2a;
-        --light: #f4f4f4;
-        --gray: #666;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        background: var(--light);
-        overflow-x: hidden;
-      }
-
-      /* Animated Background */
-      .bg-animation {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .bg-animation li {
-        position: absolute;
-        display: block;
-        list-style: none;
-        width: 75px;
-        height: 20px;
-        color: #858686;
-        font-weight: bold;
-        font-size: 22px;
-        background: rgba(255, 255, 255, 0.1);
-        animation: animate 25s linear infinite;
-        bottom: -150px;
-      }
-
-      .bg-animation li:nth-child(1) {
-        left: 25%;
-        width: 115px;
-        height: 100px;
-        padding: 20px;
-        animation-delay: 0s;
-      }
-
-      .bg-animation li:nth-child(2) {
-        left: 10%;
-        width: 130px;
-        height: 125px;
-        padding: 20px;
-        animation-delay: 2s;
-        animation-duration: 12s;
-      }
-
-      .bg-animation li:nth-child(3) {
-        left: 70%;
-        width: 125px;
-        height: 125px;
-        padding: 20px;
-        animation-delay: 4s;
-      }
-
-      .bg-animation li:nth-child(4) {
-        left: 40%;
-        width: 125px;
-        height: 125px;
-        padding: 20px;
-        animation-delay: 0s;
-        animation-duration: 18s;
-      }
-
-      .bg-animation li:nth-child(5) {
-        left: 65%;
-        width: 125px;
-        height: 125px;
-        padding: 20px;
-        animation-delay: 0s;
-      }
-
-      @keyframes animate {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-          border-radius: 0;
-        }
-        100% {
-          transform: translateY(-1000px) rotate(720deg);
-          opacity: 0;
-          border-radius: 50%;
-        }
-      }
-
-      /* Header Styles */
-      header {
-        background: var(--dark);
-        color: white;
-        position: relative;
-        padding: 4rem 0;
-        text-align: center;
-        overflow: hidden;
-      }
-
-      .header-content {
-        position: relative;
-        z-index: 2;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-      }
-
-      .logo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-bottom: 2rem;
-        border: 4px solid var(--primary);
-        padding: 0.3rem;
-        background: white;
-        transition: transform 0.7s ease;
-      }
-
-      .logo:hover {
-        transform: scale(1.1);
-        padding: 0.3rem;
-        transition: 0.7s ease;
-        transition: all 0.3s ease;
-
-      }
-
-      h1 {
-        font-size: 3.5rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      }
-
-      .company-slogan {
-        font-size: 2rem;
-        color: var(--secondary);
-        margin-bottom: 2rem;
-      }
-
-      .hero-text {
-        font-size: 1.2rem;
-        max-width: 800px;
-        margin: 0 auto 2rem;
-        line-height: 1.8;
-      }
-
-      .cta-button {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: var(--secondary);
-        color: var(--dark);
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .cta-button:hover {
-        background: transparent;
-        color: var(--secondary);
-        border-color: var(--secondary);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Services Section */
-      .services {
-        padding: 5rem 2rem;
-        background: white;
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        color: var(--dark);
-        margin-bottom: 3rem;
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .service-card {
-        background: white;
-        border-radius: 15px;
-        padding: 2rem;
-        text-align: center;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, var(--primary), var(--secondary));
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 1;
-      }
-
-      .service-card:hover::before {
-        opacity: 0.1;
-      }
-
-      .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      }
-
-      .service-icon {
-        font-size: 2.5rem;
-        color: var(--primary);
-        margin-bottom: 1rem;
-      }
-
-      .service-title {
-        color: var(--dark);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .service-description {
-        color: var(--gray);
-        margin-bottom: 1rem;
-      }
-
-      /* Contact Section */
-      .contact {
-        padding: 5rem 2rem;
-        background: white;
-      }
-
-      .contact-container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .contact-form {
-        display: grid;
-        gap: 1.5rem;
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-group {
-        display: grid;
-        gap: 0.5rem;
-      }
-
-      .form-label {
-        font-weight: bold;
-        color: var(--dark);
-      }
-
-      .form-input {
-        padding: 1rem;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-      }
-
-      .form-input:focus {
-        border-color: var(--primary);
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
-      }
-
-      textarea.form-input {
-        min-height: 150px;
-        resize: vertical;
-      }
-
-      .submit-button {
-        background: var(--gray);
-        color: white;
-        padding: 1rem;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .submit-button:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-      }
-
-      /* Footer */
-      footer {
-        background: var(--dark);
-        color: white;
-        text-align: center;
-        padding: 2rem;
-      }
-
-      .footer-logo {
-        width: 80px;
-        margin-bottom: 1rem;
-      }
-
-      .footer-text {
-        font-size: 1rem;
-        color: #aaa;
-      }
-
-      .footer-social {
-        margin-top: 1rem;
-      }
-
-      .footer-social a {
-        font-size: 1.5rem;
-        margin: 0 1rem;
-        color: white;
-        transition: all 0.3s ease;
-      }
-
-      .footer-social a:hover {
-        color: var(--primary);
-      }
-
-      @media (max-width: 768px) {
-        header {
-          padding: 3rem 0;
+        /* Reset and Basic Styles */
+        body, h1, h2, h3, p, ul, li, a, input, button, textarea {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .cta-button {
-          font-size: 1rem;
-          padding: 0.8rem 1.8rem;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
 
-        .services-grid {
-          grid-template-columns: 1fr;
+        ul {
+            list-style: none;
         }
-      }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-container {
+            display: flex;
+            justify-content:space-between;
+            background: #abacab;
+            color: #fff;
+            padding: 5px 10px;
+            padding-right: 5em;
+            align-items: center;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            font-weight: bold;
+        }
+        .hero {
+            background: url('background1.png') no-repeat center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .hero .btn {
+            padding: 10px 20px;
+            background: #ff7f50;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .about, .courses, .contact {
+            padding: 50px 20px;
+        }
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .course-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .course {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .course h3 {
+            margin-bottom: 10px;
+            color: #015019;
+        }
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            background: #015019;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background: #015019;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
     </style>
-  </head>
-  <body>
-    <div class="bg-animation">
-      <ul>
-        <li>Custom Chatbots</li>
-        <li>Intelligent Data Handling</li>
-        <li>Web Scraping</li>
-        <li>Beautiful Soup</li>
-        <li>Selenium</li>
-        <li>Scrapy</li>
-      </ul>
-    </div>
-
-    <header>
-      <div class="header-content">
-        <img src="tamyeez_solutions_logo.jpg" alt="Logo" class="logo" />
-        <h1>Tamyeez Solutions</h1>
-        <p class="company-slogan">Data Collection & Automation Experts</p>
-        <p class="hero-text">
-          We provide automated solutions to streamline your data processes,
-          making your business more efficient and scalable.
-        </p>
-        <a href="#contact" class="cta-button">Contact Us</a>
-      </div>
+</head>
+<body>
+    <header class="header">
+        <div class="top-container">
+            <img class="logo" src="logo.png" alt="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Updated service section with your current focus -->
-    <section class="services" id="services">
-      <a href="./nahw.html">1st Lesson</a>
-      <h2 class="section-title">Our Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <i class="fas fa-brain service-icon"></i>
-          <h3 class="service-title">OpenAI-Powered Solutions</h3>
-          <p class="service-description">
-            Unlock the potential of AI with custom OpenAI-based solutions
-            tailored to your needs.
-          </p>
-          <a href="#contact" class="cta-button">Learn More</a>
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Markaz Tamyeez</h2>
+            <p>Learn Arabic and Islamic Studies and get closer to Allah.</p>
+            <a href="#courses" class="btn">Explore Courses</a>
         </div>
-        <div class="service-card">
-          <i class="fas fa-code service-icon"></i>
-          <h3 class="service-title">Full-Stack Development</h3>
-          <p class="service-description">
-            Build powerful, scalable applications with our comprehensive
-            development services.
-          </p>
-          <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-spider service-icon"></i>
-          <h3 class="service-title">Ethical Web Scraping</h3>
-          <p class="service-description">
-            Extract valuable data insights using cutting-edge web scraping
-            technologies.
-          </p>
-          <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-bolt service-icon"></i>
-          <h3 class="service-title">Task Automation</h3>
-          <p class="service-description">
-            Streamline processes and boost productivity with custom automation
-            solutions.
-          </p>
-          <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-database service-icon"></i>
-          <h3 class="service-title">Data Collection & Management</h3>
-          <p class="service-description">
-            Gather, organize, and distribute data efficiently using tailored
-            solutions.
-          </p>
-          <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-file-alt service-icon"></i>
-          <h3 class="service-title">Document Generation</h3>
-          <p class="service-description">
-            Automate document creation and maintain consistency across your
-            organization.
-          </p>
-          <a href="#contact" class="cta-button">Learn More</a>
-        </div>
-      </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="contact-container">
-        <h2 class="section-title">Contact Us</h2>
-        <form
-          action="https://formspree.io/f/your-form-id"
-          method="POST"
-          class="contact-form"
-        >
-          <div class="form-group">
-            <label for="name" class="form-label">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="form-input"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-input"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              class="form-input"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="submit-button"><a href="mailto:youremail@example.com?subject=Contact%20Us%20Message" class="cta-button">Contact Us</a>
-</button>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Markaz Tamyeez is dedicated to providing quality education in Islamic knowledge and the Arabic language. Our mission is to make learning Islam directly from the scholars feasible for all with Allah's permission.</p>
+            <br>
+            <p>There are many who don't have time, especially in the western lands, because of the large amount of time needed to take care of your worldly affairs. It is not easy to align our schedules with that of instructors. We have the solution so you no longer need to worry about your time constraints. We offer one-on-one live classes as well as pre-recorded so you could study on your own time and still fulfill your religious and worldly obligations.</p>
+        </div>
+    </section>
+
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2>Our Courses</h2>
+            <div class="course-list">
+                <div class="course">
+                    <h3>Arabic Courses</h3>
+                    <p>Whether you are a beginner with no background or trying to learn the sciences of Arabic, we have something for you.</p>
+                </div>
+                <div class="course">
+                    <h3>Text Memorization</h3>
+                    <p>Memorize various Islamic texts from the Qur'an, Hadith, and the books of the scholars.</p>
+                </div>
+                <div class="course">
+                    <h3>Islamic Studies</h3>
+                    <p>Learn from the various sciences of the religion from Aqeedah, Hadith, Tafsir, etc..</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us using the form below.</p>
+            <p>Email: tamyeezpubs@gmail.com</p>
+            <p>Phone: (267) 490-1101</p>
+            <form action="mailto:tamyeezpubs@gmail.com" method="GET">
+            <input type="text" name="subject" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="body" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
         </form>
-      </div>
+        </div>
     </section>
 
-    <footer>
-      <img src="tamyeez_solutions_logo.jpg" alt="Footer Logo" class="footer-logo" />
-      <p class="footer-text">&copy; 2024 Tamyeez Solutions</p>
-      <div class="footer-social">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-      </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Markaz Tamyeez. All rights reserved.</p>
+        </div>
     </footer>
-  </body>
+</body>
 </html>
